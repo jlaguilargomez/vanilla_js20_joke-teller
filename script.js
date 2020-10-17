@@ -23,6 +23,8 @@ function toggleButton() {
   button.disabled = !button.disabled;
 }
 
+
+
 // Get Jokes from API
 async function getJokes() {
   const apiUrl = 'http://api.icndb.com/jokes/random';
@@ -44,4 +46,5 @@ button.addEventListener('click', () => {
 })
 
 audioElement.addEventListener('ended', toggleButton)
+
 

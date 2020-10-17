@@ -1,9 +1,5 @@
-* {
-  box-sizing: border-box;
-}
+/* ROBOT.GIF from Giphy - https://giphy.com/gifs/robot-cinema-4d-eyedesyn-3o7abtn7DuREEpsyWY */
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: dodgerblue;
+html {
+  box-sizing: border-box;
 }

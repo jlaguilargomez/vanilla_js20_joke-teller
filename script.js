@@ -5,24 +5,43 @@ const VoiceRSS={speech:function(e){this._validate(e),this._request(e)},_validate
 const button = document.getElementById('button');
 const audioElement = document.getElementById('audio')
 
-// function test() {
-//   VoiceRSS.speech({
-//     key: '6c5b667fc5174566970702ed907d02cc',
-//     src: 'Hello world!',
-//     hl: 'en-us',
-//     r: 0,
-//     c: 'mp3',
-//     f: '44khz_16bits_stereo',
-//     ssml:false
-//   })
-// }
 
-// test();
+function createSpeech(joke) {
+  return VoiceRSS.speech({
+    key: '6c5b667fc5174566970702ed907d02cc',
+    src: joke,
+    hl: 'en-us',
+    r: 0,
+    c: 'mp3',
+    f: '44khz_16bits_stereo',
+    ssml: false
+  });
+}
 
+// Disable-enable button
+function toggleButton() {
+  button.disabled = !button.disabled;
+}
 
+// Get Jokes from API
+async function getJokes() {
+  const apiUrl = 'http://api.icndb.com/jokes/random';
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    const joke = data.value.joke;
+    createSpeech(joke)
+    
+  } catch (error) {
+    console.log('La has cagado... '+error)
+  }
+}
 
-fetch('http://api.icndb.com/jokes/random')
-  .then((res) => res.json())
-  .then(console.log);
+button.addEventListener('click', () => {
+  getJokes()
+  toggleButton()
+ 
+})
 
-  // 
+audioElement.addEventListener('ended', toggleButton)
+

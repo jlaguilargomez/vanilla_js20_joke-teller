@@ -1,7 +1,7 @@
 # vanilla_js20_joke-teller
 Infinity Scroll project from "JS 20 projects course"
 
-Live-project: http://jlaguilardev.me/vanilla_js20_joke-teller/
+Live-project: https://github.com/jlaguilargomez/vanilla_js20_joke-teller
 
 # Joke teller
 
